@@ -1,0 +1,25 @@
+{
+  "name": "hsmetal060825-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "framer-motion": "11.0.8",
+    "lucide-react": "0.428.0"
+  },
+  "devDependencies": {
+    "typescript": "5.3.3",
+    "@types/react": "18.3.3",
+    "@types/node": "20.12.7",
+    "tailwindcss": "3.4.10",
+    "postcss": "8.4.38",
+    "autoprefixer": "10.4.18"
+  }
+}
