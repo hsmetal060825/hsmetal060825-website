@@ -1,5 +1,5 @@
 {
-  "name": "hsmetal060825-website",
+  "name": "hsmetal060825-fullsite",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,6 @@
     "next": "14.2.5",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "framer-motion": "11.0.8",
     "lucide-react": "0.428.0"
   },
   "devDependencies": {
