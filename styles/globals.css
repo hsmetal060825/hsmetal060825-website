@@ -1,5 +1,44 @@
+/* Tailwind base reset */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root{ --brand-blue:#0B1E3A; --brand-gold:#D4AF37 }
+/* 全站背景與字體設定 */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: #ffffff;
+  color: #0B1E3A; /* 品牌藍 */
+  line-height: 1.6;
+}
+
+/* 鏈結 hover 效果 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+/* 針對圖片，避免超出容器 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Section spacing */
+section {
+  scroll-margin-top: 80px; /* 避免被 sticky header 遮住 */
+}
+
+/* Footer 字型大小微調 */
+footer {
+  font-size: 0.9rem;
+}
