@@ -1,11 +1,9 @@
-
-import "./../styles/globals.css";
 import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "瀚森金屬工程 HS Metal Façade",
-  description: "金屬帷幕牆｜鋁包板｜玻璃帷幕｜不鏽鋼帷幕｜金屬格柵。十年以上大型商辦與科技廠房經驗。",
-  icons: [{ rel: "icon", url: "/favicon.ico" }]
+  title: "瀚森金屬工程有限公司",
+  description: "金屬外牆・玻璃帷幕・鋁包板",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

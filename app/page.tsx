@@ -1,117 +1,34 @@
-
-"use client";
-
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Building2, Hammer, Layers, Ruler, Mail, Phone, MapPin } from "lucide-react";
-
-const BRAND_BLUE = "#0B1E3A";
-const BRAND_GOLD = "#D4AF37";
-
-const zh = {
-  nav: { services: "服務項目", projects: "代表實績", about: "關於我們", contact: "聯絡我們" },
-  hero: { title: "金屬外牆．玻璃帷幕．鋁包板", subtitle: "十年以上大型商辦與科技廠房經驗｜品質準時雙保證", cta: "聯絡我們" },
-  services: {
-    title: "服務項目",
-    items: [
-      { icon:"Building2", name:"玻璃帷幕", desc:"高氣密/耐候設計，結合節能與景觀需求" },
-      { icon:"Layers", name:"鋁板/金屬包板", desc:"雙層金屬板系統、氟碳塗裝、烤漆處理" },
-      { icon:"Ruler", name:"不鏽鋼/金屬格柵", desc:"耐蝕等級選材，外觀與功能兼具" },
-      { icon:"Hammer", name:"結構補強/整修", desc:"舊樓改裝、外牆更新、設計值審核" },
-    ]
-  },
-  projects: "代表實績",
-  about: { title: "關於我們", text: "瀚森金屬工程專精於金屬外牆與玻璃帷幕工程，從細部設計、shop drawing、材料選型到現場安裝，皆提供一站式服務。以深藍＋金色為品牌識別，代表穩重與品質承諾。" },
-  contact: { title: "聯絡我們", address: "服務範圍：台北・新北・桃園・新竹・台中", email: "hsmetal060825@gmail.com", phone: "0985321566", message: "歡迎留下需求與圖說，我們將盡速與您聯繫。" }
-};
-const en = {
-  nav: { services: "Services", projects: "Projects", about: "About", contact: "Contact" },
-  hero: { title: "Metal Façade, Glass Curtain Wall & Aluminum Cladding", subtitle: "10+ years in office towers & science parks — on-time and on-quality", cta: "Contact Us" },
-  services: {
-    title: "Services",
-    items: [
-      { icon:"Building2", name:"Glass Curtain Wall", desc:"High air-tightness, weather resistance & energy saving" },
-      { icon:"Layers", name:"Aluminum/Metal Cladding", desc:"Double-skin metal panels, PVDF/paint finishing" },
-      { icon:"Ruler", name:"Stainless & Grilles", desc:"Corrosion-grade selection, aesthetics and function" },
-      { icon:"Hammer", name:"Retrofit & Reinforcement", desc:"Renovation, recladding, design review support" },
-    ]
-  },
-  projects: "Projects",
-  about: { title: "About Us", text: "HS Metal specializes in metal façades and glass curtain walls. From detail design and shop drawings to material selection and on-site installation, we deliver an end-to-end service. The deep blue & gold palette stands for reliability and quality." },
-  contact: { title: "Contact", address: "Service Area: Taipei, New Taipei, Taoyuan, Hsinchu, Taichung", email: "hsmetal060825@gmail.com", phone: "0985321566", message: "Leave your requirements and drawings — we’ll get back shortly." }
-};
-
-const projects = [
-  { zh:"台元科技園區九期", en:"Taiyen Science Park Phase 9", img:"/images/taiyen.jpg", blurb_zh:"科技廠房｜鋁包板＋玻璃帷幕", blurb_en:"Tech facility — Aluminum + Glass" },
-  { zh:"遠東百貨 A13", en:"Far Eastern A13", img:"/images/fareastA13.jpg", blurb_zh:"商辦百貨｜雙層金屬板", blurb_en:"Retail/Office — Double-skin metal" },
-  { zh:"華南銀行土城", en:"Hua Nan Bank Tucheng", img:"/images/hnbank.jpg", blurb_zh:"辦公大樓｜鋁板＋玻璃帷幕", blurb_en:"Office tower — Aluminum + Glass" },
-];
+import Nav from "../components/Nav";
 
 export default function Page() {
-  const [lang, setLang] = useState<"zh"|"en">("zh");
-  const t = lang==="zh"?zh:en;
-
   return (
-    <main>
-      <nav className="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-slate-200">
-        <div className="container flex h-14 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="h-3 w-3 rounded-full" style={{background:BRAND_GOLD}}/>
-            <span className="text-sm font-semibold" style={{color:BRAND_BLUE}}>HS Metal</span>
-          </div>
-          <div className="hidden gap-5 md:flex">
-            <a href="#services">{t.nav.services}</a>
-            <a href="#projects">{t.nav.projects}</a>
-            <a href="#about">{t.nav.about}</a>
-            <a href="#contact">{t.nav.contact}</a>
-          </div>
-          <div className="flex items-center gap-2">
-            <button className="btn btn-outline" onClick={()=>setLang(lang==="zh"?"en":"zh")}>{lang==="zh"?"EN":"中文"}</button>
-            <a href="#contact"><button className="btn btn-gold">{t.hero.cta}</button></a>
-          </div>
-        </div>
-      </nav>
-
-      <header className="relative">
-        <img src="/images/hero.jpg" alt="hero" className="h-[52vh] w-full object-cover" />
-        <div className="absolute inset-0 bg-[rgba(11,30,58,0.35)]" />
-        <div className="container absolute inset-0 flex flex-col justify-center">
-          <h1 className="text-white text-3xl md:text-5xl font-semibold drop-shadow">{t.hero.title}</h1>
-          <p className="mt-3 text-white/95 md:text-lg">{t.hero.subtitle}</p>
-          <div className="mt-6"><a href="#contact"><button className="btn btn-gold">{t.hero.cta}</button></a></div>
-        </div>
+    <main className="min-h-screen bg-white text-slate-800">
+      <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/80 backdrop-blur">
+        <Nav />
       </header>
 
+      <section className="border-b border-slate-200 bg-[url('/images/taiyen.jpg')] bg-cover bg-center">
+        <div className="mx-auto max-w-7xl px-4 py-16 md:py-24 bg-black/30 text-white">
+          <h1 className="text-3xl font-bold md:text-5xl drop-shadow" style={{letterSpacing:'.1em'}}>金屬外牆．玻璃帷幕．鋁包板</h1>
+          <p className="mt-4 max-w-3xl text-slate-100 md:text-lg">十年以上大型商辦與科技廠房經驗｜準時品質、專業承諾</p>
+          <a href="#contact" className="mt-6 inline-block rounded-lg bg-[#D4AF37] px-5 py-2 text-sm font-semibold text-white shadow hover:brightness-95">聯絡我們</a>
+        </div>
+      </section>
+
+      {/* 服務項目 */}
       <section id="services" className="py-16 md:py-20">
-        <div className="container">
-          <h2 className="section-title">{t.services.title}</h2>
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-2xl font-semibold md:text-3xl" style={{color:'var(--brand-blue)'}}>服務項目</h2>
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-4">
-            {t.services.items.map((s, i)=> (
-              <div key={i} className="card p-6">
-                <div className="text-brandGold mb-3">
-                  {s.icon==="Building2" && <Building2 />}
-                  {s.icon==="Layers" && <Layers />}
-                  {s.icon==="Ruler" && <Ruler />}
-                  {s.icon==="Hammer" && <Hammer />}
-                </div>
-                <div className="font-semibold">{s.name}</div>
-                <div className="text-sm text-slate-600 mt-1">{s.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" className="py-16 md:py-20 bg-white">
-        <div className="container">
-          <h2 className="section-title">{t.projects}</h2>
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {projects.map((p, i)=> (
-              <div key={i} className="card overflow-hidden">
-                <img src={p.img} alt={lang==="zh"?p.zh:p.en} className="h-44 w-full object-cover" />
-                <div className="p-6">
-                  <div className="font-semibold">{lang==="zh"?p.zh:p.en}</div>
-                  <div className="text-sm text-slate-600 mt-1">{lang==="zh"?p.blurb_zh:p.blurb_en}</div>
+            {['玻璃帷幕','鋁板/金屬包板','不鏽鋼/金屬格柵','結構補強/整修'].map((name, i)=>(
+              <div key={i} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm text-left">
+                <div className="mb-3 h-7 w-7 rounded-full bg-[color:var(--brand-gold)]/20"></div>
+                <div className="font-semibold">{name}</div>
+                <div className="mt-2 text-sm leading-6 text-slate-600">
+                  {i===0 && '根據建築外觀及設計需求，選擇最適合的帷幕牆系統與玻璃配置，確保性能及美學兼具'}
+                  {i===1 && '兼具設計美學及經濟效益，提供耐久性及穩定外觀的方案'}
+                  {i===2 && '綜合建築機能及設計需求，評估遮陽、通風效果，並選擇合適材質及形式'}
+                  {i===3 && '透過專業檢測掌握舊樓外牆問題，量身打造翻新及補強措施'}
                 </div>
               </div>
             ))}
@@ -119,46 +36,83 @@ export default function Page() {
         </div>
       </section>
 
+      {/* 代表實績 2x2 */}
+      <section id="projects" className="bg-slate-50 py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-2xl font-semibold md:text-3xl" style={{color:'var(--brand-blue)'}}>代表實績</h2>
+          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
+            {[
+              {name:'台元科技園區九期', img:'/images/taiyen.jpg', blurb:'科技廠房｜玻璃帷幕、鋁包板、金屬桁架'},
+              {name:'遠東百貨 A13', img:'/images/fareastA13.jpg', blurb:'商辦百貨｜複層金屬板、結構玻璃、玻璃帷幕'},
+              {name:'華南銀行土城', img:'/images/hnbank.jpg', blurb:'商辦大樓｜玻璃帷幕、鋁包板'},
+              {name:'宏普世貿', img:'/images/hongpu.jpg', blurb:'商辦大樓｜玻璃帷幕、石材帷幕'},
+            ].map((p,i)=>(
+              <div key={i} className="flex flex-col items-center rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div className="w-full flex justify-center">
+                  <img src={p.img} alt={p.name} className="w-1/2 rounded-lg object-cover shadow-md" />
+                </div>
+                <div className="mt-4 w-full text-left">
+                  <div className="font-semibold">{p.name}</div>
+                  <div className="mt-1 text-sm text-slate-600">{p.blurb}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 關於我們 */}
       <section id="about" className="py-16 md:py-20">
-        <div className="container grid md:grid-cols-2 gap-10 items-center">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 md:grid-cols-2">
           <div>
-            <h2 className="section-title">{t.about.title}</h2>
-            <p className="mt-4 text-slate-700 leading-7">{t.about.text}</p>
+            <h2 className="text-2xl font-semibold md:text-3xl" style={{color:'var(--brand-blue)'}}>關於我們</h2>
+            <p className="mt-4 leading-7 text-slate-700">
+              瀚森金屬工程專精於金屬外牆與玻璃帷幕工程，從細部設計、材料選型到現場安裝，提供一站式服務。以『準時交付、專業承諾』為核心價值，累積多年大型專案經驗，代表實績涵蓋商辦、百貨、金融與科技產業。
+            </p>
           </div>
-          <div className="card p-6">
-            <ul className="space-y-3 text-sm text-slate-700">
-              <li className="flex items-center gap-3"><Building2 className="text-brandGold"/><span>台元九期、遠百 A13、華南土城 等大型專案經驗</span></li>
-              <li className="flex items-center gap-3"><Ruler className="text-brandGold"/><span>提供 Shop Drawing、細部節點、結構計算建議</span></li>
-              <li className="flex items-center gap-3"><Layers className="text-brandGold"/><span>鋁板、玻璃、不鏽鋼、格柵材料選型與測試</span></li>
-              <li className="flex items-center gap-3"><Hammer className="text-brandGold"/><span>現場安裝與品質控管，準時交付</span></li>
-            </ul>
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-5">
+            {['台元九期、遠百 A13、華南土城 等大型專案經驗','提供外牆規劃、大樣設計、結構評估','鋁擠型、金屬板、玻璃、石材、不鏽鋼材料設計及評估','現場施工管理與品質控管，準時交付'].map((b, i)=>(
+              <div key={i} className="flex items-start gap-3">
+                <div className="h-5 w-5 rounded bg-[color:var(--brand-gold)]/30"></div>
+                <p className="text-slate-700">{b}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="contact" className="py-16 md:py-20 bg-white">
-        <div className="container">
-          <h2 className="section-title">{t.contact.title}</h2>
-          <div className="mt-6 grid md:grid-cols-3 gap-6">
-            <div className="card p-6">
-              <div className="flex items-center gap-3"><MapPin className="text-brandGold"/><span>{t.contact.address}</span></div>
-              <div className="mt-3 flex items-center gap-3"><Mail className="text-brandGold"/><a href="mailto:hsmetal060825@gmail.com">hsmetal060825@gmail.com</a></div>
-              <div className="mt-3 flex items-center gap-3"><Phone className="text-brandGold"/><a href="tel:0985321566">0985321566</a></div>
-              <p className="mt-4 text-sm text-slate-600">{t.contact.message}</p>
-            </div>
-            <div className="md:col-span-2 card p-6">
-              <div className="text-sm text-slate-600">
-                本站不提供線上詢價表單。如需估價，請以 Email/電話聯絡，我們將安排專員回覆。
+      {/* 聯絡我們 */}
+      <section id="contact" className="py-16">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-2xl font-semibold md:text-3xl" style={{color:'var(--brand-blue)'}}>聯絡我們</h2>
+          <div className="mt-8 grid grid-cols-1 items-center gap-10 md:grid-cols-2">
+            <div className="space-y-5 text-lg">
+              <div className="flex items-center gap-3"><span className="h-6 w-6 rounded bg-[color:var(--brand-gold)]/30"></span><span>桃園市中壢區中山東路三段160號</span></div>
+              <div className="flex items-center gap-3"><span className="h-6 w-6 rounded bg-[color:var(--brand-gold)]/30"></span><a href="mailto:hsmetal060825@gmail.com" className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900">hsmetal060825@gmail.com</a></div>
+              <div className="flex items-center gap-3"><span className="h-6 w-6 rounded bg-[color:var(--brand-gold)]/30"></span><a href="tel:0985321566" className="underline decoration-slate-400 underline-offset-4 hover:text-slate-900">0985321566</a></div>
+              <div className="pt-2">
+                <a href="https://line.me/ti/p/~wenkai987" className="inline-flex items-center gap-2 rounded-lg bg-[#06C755] px-4 py-2 font-semibold text-white shadow transition hover:brightness-95">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" className="h-5 w-5"><path fill="#fff" d="M18 2C9.7 2 3 7.9 3 15.4c0 4.1 2.3 7.8 5.9 10.1L8 33l6.6-3.5c1.1.3 2.3.5 3.5.5 8.3 0 15-5.9 15-13.4S26.3 2 18 2z" /></svg>
+                  加 Line 諮詢
+                </a>
+                <div className="mt-1 text-sm text-slate-500">Line ID：wenkai987</div>
               </div>
             </div>
+            <div className="flex justify-center">
+              <img src="/images/line-qr.jpg" alt="Line QR Code" className="h-44 w-44 rounded-lg border border-slate-200 object-contain shadow" />
+            </div>
           </div>
         </div>
       </section>
 
-      <footer className="py-10 border-t border-slate-200 bg-white">
-        <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-sm text-slate-600">© {new Date().getFullYear()} HS Metal. All rights reserved.</div>
-          <div className="text-sm">Email: <a className="text-brandBlue" href="mailto:hsmetal060825@gmail.com">hsmetal060825@gmail.com</a> ｜ Tel: <a className="text-brandBlue" href="tel:0985321566">0985321566</a></div>
+      <footer className="border-t border-slate-200 bg-white py-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 text-sm text-slate-600 md:flex-row">
+          <div>© {new Date().getFullYear()} 瀚森金屬工程有限公司</div>
+          <div>
+            <a className="underline" href="mailto:hsmetal060825@gmail.com">hsmetal060825@gmail.com</a>
+            <span className="mx-2">｜</span>
+            <a className="underline" href="tel:0985321566">0985321566</a>
+          </div>
         </div>
       </footer>
     </main>
